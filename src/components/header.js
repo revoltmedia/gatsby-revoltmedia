@@ -7,7 +7,8 @@ export default () => (
       query {
         site {
           siteMetadata {
-            title
+            title,
+            logoUrl
           }
         }
       }
@@ -18,6 +19,7 @@ export default () => (
     <header>
       <div>
         <Link to={`/`}>
+          <img src={data.site.siteMetadata.logoUrl} alt={data.site.siteMetadata.title} />
           <h1>
             {data.site.siteMetadata.title}
           </h1>

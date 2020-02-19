@@ -6,7 +6,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Revolt Media`
+    title: `Revolt Media`,
+    logoUrl: `/assets/images/logo-star.svg`
   },
   plugins: [
     `gatsby-transformer-remark`,
