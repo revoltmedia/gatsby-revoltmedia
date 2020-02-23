@@ -11,13 +11,7 @@ export default ({ data }) => {
       query {
         site {
           siteMetadata {
-            title,
             logoUrl,
-            navMain {
-              name,
-              link,
-              external,
-            }
             slidesMain {
               title,
               link,

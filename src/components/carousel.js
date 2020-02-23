@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import Carousel from "react-slick"
-import { isBrowser } from "../services/browser"
 
 export default ({ slides }) => {
     const settings = {
