@@ -1,0 +1,11 @@
+body {
+    @include s-bg-wood();
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    main#content {
+        @include media-breakpoint-up(sm){
+            padding-bottom: rem(150px);
+        }
+    }
+}

@@ -1,0 +1,63 @@
+
+
+@mixin s-text-dark-on-light {
+    &, & p {
+        color: $black;
+    }
+}
+
+@mixin s-text-light-on-dark {
+    &, & p {
+        color: $white;
+    }
+    a[href] {
+        &:link {
+            color: $white;
+        }
+        &:visited {
+            color: $gray-300;
+        }
+        &:hover, &:focus {
+            color: $yellow;
+        }
+    }
+}
+
+@mixin s-text-size( $size: 14px, $lineheight: null ) {
+    font-size: $size; 
+    font-size: rem($size);
+    @if not ($lineheight) {
+        line-height: $size + 5px; 
+        line-height: rem($size + 5px);
+    } @else {
+        line-height: $lineheight; 
+        line-height: rem($lineheight);
+    }
+}
+
+@mixin s-link-hover {
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+@mixin s-no-underline {
+    &:link,
+    &:visited,
+    &:hover,
+    &:focus,
+    a:link,
+    a:visited,
+    a:hover,
+    a:focus {
+        text-decoration:none;
+    }
+}
+
+body {
+    @include s-text-light-on-dark();
+    @include s-text-size();
+}
+
+

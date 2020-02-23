@@ -1,0 +1,53 @@
+@function rem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
+
+@mixin s-hover-trans-dark {
+  @include s-bg-dark-trans();
+  &:hover,
+  &:focus {
+    background-color: rgba($black, 0.5);
+  }
+}
+@mixin s-bg-wood {
+  background-image: url(/assets/images/backgrounds/bg-wood-dark.jpg);
+  background-repeat: repeat;
+  background-position: center center;
+  background-size: 1000px;
+  @media screen and (min-width: 660px) {
+    background-size: 1000px;
+    background-position: center center;
+  }
+}
+@mixin s-bg-brown-star {
+  background-image: url(/assets/images/backgrounds/logo-star.svg);
+  background-repeat: no-repeat, repeat;
+  background-position: right -50px;
+  background-size: 120%;
+  @media screen and (min-width: 660px) {
+    background-size: 660px;
+    background-position: right -130px;
+  }
+}
+@mixin s-bg-brown-star-wood {
+  background-image: url(/assets/images/backgrounds/logo-star.svg),
+    url(../images/bg-wood-dark.jpg);
+  background-repeat: no-repeat, repeat;
+  background-position: right bottom, center 110px;
+  background-size: 120%, 1000px;
+  @media screen and (min-width: 660px) {
+    background-size: 660px, 1000px;
+    background-position: right bottom, center 110px;
+  }
+}
+@mixin s-bg-dark {
+  background-color: $black;
+}
+@mixin s-bg-light {
+  background-color: $white;
+}
+@mixin s-bg-dark-trans {
+  background-color: rgba($black, 0.2);
+}
+

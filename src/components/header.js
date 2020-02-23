@@ -1,30 +1,22 @@
 import React from "react"
-import { StaticQuery, Link, graphql } from "gatsby"
+import { Link } from "gatsby"
+import Nav from "./nav"
 
-export default () => (
-  <StaticQuery
-  query={graphql `
-      query {
-        site {
-          siteMetadata {
-            title,
-            logoUrl
-          }
-        }
-      }
-    `
-  }
-
-  render={data => (
-    <header>
+export default ({ logoUrl, title, nav }) => (
+    <header id="main-header">
       <div>
-        <Link to={`/`}>
-          <img src={data.site.siteMetadata.logoUrl} alt={data.site.siteMetadata.title} />
-          <h1>
-            {data.site.siteMetadata.title}
-          </h1>
-        </Link>
+        <div>
+          <div id="header-branding">
+            <Link to={`/`}>
+              <img src={logoUrl} alt={title} />
+            </Link>
+          </div>
+          <nav id="header-navigation">
+            <Nav
+              nav={nav} 
+            />
+          </nav>
+        </div>
       </div>
     </header>
-  )}
- />)
+  )

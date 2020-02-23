@@ -1,0 +1,78 @@
+@mixin m-button( $color: $purple ) {
+    @include button-variant($color, $color);
+    @include button-size(rem(5px), rem(10px), inherit, inherit, rem(5px));
+}
+
+@mixin m-unbutton {
+    @include button-variant(transparent, transparent);
+    @include button-size(0, 0, inherit, inherit, 0);
+}
+@mixin m-nav-mobile-buttons {
+    @include list-unstyled;
+    @include media-breakpoint-up(sm){
+        @include make-row;
+        align-items: center;
+    }
+    > li {
+        @include media-breakpoint-up(sm){
+            padding: 0 ($grid-gutter-width / 2);
+        }
+        > a {
+            display:block;
+            @include m-button;
+            margin: 0 0 rem(10px) 0;
+            
+            // @include s-hover-trans-dark;
+            // a {
+            //   &:hover,
+            //   &:focus {
+            //     background-color: transparent;
+            //   }
+            //   @include media-breakpoint-up(sm){
+            //     display: inline;
+            //   }
+            // }
+            @include media-breakpoint-up(sm){
+                margin: 0;
+                @include m-unbutton;
+            //   &,
+            //   &:hover,
+            //   &:focus {
+            //     background-color: transparent;
+            //   }
+            }
+        }   
+    }
+}
+
+@mixin m-nav-list {
+    ul {
+        @include m-nav-mobile-buttons;
+        @include media-breakpoint-up(sm){
+            height: 100%;
+        }
+        li {
+            @include make-col(12);
+            >a {
+                @include s-no-underline;
+            }
+        }
+    }
+}
+
+@mixin m-nav {
+    ul {
+        @include m-nav-mobile-buttons;
+        @include media-breakpoint-up(sm){
+            display: flex;
+            text-align: left;
+            justify-content: flex-end;
+            height: 100%;
+        }
+        li {
+            >a {
+                @include s-no-underline;
+            }
+        }
+    }
+}

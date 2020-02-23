@@ -8,20 +8,29 @@ import Footer from "./footer"
 export default ({ children }) => (
   <StaticQuery
   query={graphql `
-      query {
-        site {
-          siteMetadata {
-            title
+    query {
+      site {
+        siteMetadata {
+          title,
+          logoUrl,
+          navMain {
+            name,
+            link,
+            external,
           }
         }
       }
+    }
     `
   }
 
   render={data => (
 
     <div>
-      <Helmet defaultTitle={data.site.siteMetadata.title} titleTemplate={`%s | ${data.site.siteMetadata.title}`}>
+      <Helmet 
+        defaultTitle={data.site.siteMetadata.title} 
+        titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+      >
         <html lang="en" />
         <link rel="canonical" href="https://www.revoltmedia.com/" />
         <meta name="docsearch:version" content="2.0" />
@@ -63,11 +72,19 @@ export default ({ children }) => (
         <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png?v=00zdL7O026" />
         <meta name="theme-color" content="#ffffff" />
       </Helmet>
-      <Header />
-        <main>
+      <Header
+        title={data.site.siteMetadata.title}
+        logoUrl={data.site.siteMetadata.logoUrl}
+        nav={data.site.siteMetadata.navMain}
+      />
+        <main id="content">
           {children}
         </main>
-      <Footer />
+      <Footer
+        title={data.site.siteMetadata.title}
+        logoUrl={data.site.siteMetadata.logoUrl}
+        nav={data.site.siteMetadata.navMain}
+      />
     </div>
   )}
  />)

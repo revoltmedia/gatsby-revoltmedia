@@ -1,0 +1,55 @@
+footer#main-footer {
+  
+  border-top: 1px solid $black;
+  background:url(/assets/images/backgrounds/bg-shadow-up.png) center top no-repeat;
+  padding-top:22px;
+  @include media-breakpoint-up(sm) {
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  >div {
+    background:url(/assets/images/bg-wood-dark.jpg) center bottom;
+    >div {
+      @include make-row();
+      @include media-breakpoint-up(sm){
+      }
+      >div, >nav {
+        @include make-col(12);
+        padding: rem(15px) rem(30px);
+        text-align: center;
+        
+
+        @include media-breakpoint-up(sm){
+          @include make-col(6);
+          text-align:left;
+          @include font-size(18px);
+          &:last-child {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}
+  
+#footer-branding {
+  flex-shrink: 1;
+}
+
+#footer-navigation {
+  @include m-nav-list;
+  >ul {
+      >li {
+        @include s-text-size(20px, 28px);
+        @include media-breakpoint-up(sm){
+            @include s-text-size(14px);
+            text-align: right;
+        }
+        >a {
+            @include s-link-hover;
+        }
+      }
+    }
+}

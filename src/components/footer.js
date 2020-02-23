@@ -1,28 +1,22 @@
 import React from "react"
-import { StaticQuery, Link, graphql } from "gatsby"
+import { Link } from "gatsby"
+import Nav from "./nav"
 
-export default () => (
-  <StaticQuery
-  query={graphql `
-      query {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `
-  }
-
-  render={data => (
-    <footer>
-      <Link to={`/`}>
-        <h3>
-          {data.site.siteMetadata.title}
-        </h3>
-      </Link>
-      <div className="disclaimer">
+export default ({ title, logoUrl, nav }) => (
+  <footer id="main-footer">
+    <div>
+      <div>
+        <div id="footer-branding">
+          <Link to={`/`}>
+            <img src={logoUrl} alt={title} />
+          </Link>
+        </div>
+        <nav id="footer-navigation">
+          <Nav
+            nav={nav}
+          />
+        </nav>
       </div>
-    </footer>
-  )}
- />)
+    </div>
+  </footer>
+)

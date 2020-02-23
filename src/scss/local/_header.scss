@@ -1,31 +1,54 @@
-body {
+header#main-header {
+  background:url(/assets/images/backgrounds/bg-shadow-down.png) center bottom no-repeat;
+  padding-bottom:22px;
+  position: relative;
+  z-index:9;
   >div {
+    background:url(/assets/images/bg-wood-dark.jpg) center top;
+    border-bottom: 1px solid $black;
+    @include media-breakpoint-up(sm){
+      // min-height: rem(115px);
+    }
     >div {
-      >div {
-        >header {
-          >div {
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-            @include make-row();
-            >a {
-              @include make-col(12);
-              text-align: center;
-              @include media-breakpoint-up(sm){
-                @include make-col(7);
-              }
-            }
-            >div {
-              @include make-col(12);
-              font-size: 1.4rem;
-              line-height: 4rem;
-              text-align: center;
-              @include media-breakpoint-up(sm){
-                @include make-col(5);
-                text-align:left;
-              }
-            }
+      @include make-row();
+      @include media-breakpoint-up(sm){
+      }
+      >div, >nav {
+        @include make-col(12);
+        padding: rem(15px) rem(30px);
+        text-align: center;
+        
+
+        @include media-breakpoint-up(sm){
+          @include make-col(6);
+          text-align:left;
+          @include font-size(18px);
+          &:last-child {
+            text-align: right;
           }
         }
+      }
+    }
+  }
+}
+
+#header-branding {
+  flex-shrink: 1;
+  img {
+    max-height:rem(50px);
+  }
+}
+
+#header-navigation {
+  @include m-nav;
+  >ul {
+    >li {
+      @include s-text-size(20px, 28px);
+      @include media-breakpoint-up(sm){
+          @include s-text-size(18px);
+      }
+      >a {
+        @include s-link-hover;
       }
     }
   }

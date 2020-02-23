@@ -1,0 +1,31 @@
+#carousel-main {
+    background:url(/assets/images/backgrounds/bg-hero-bikepath.jpg) no-repeat center right;
+    margin-top:-22px;
+    .slick-slide {
+        height: 310px;
+    }
+    .slick-prev {
+        left: rem(10px);
+    }
+    .slick-next {
+        right: rem(10px);
+    }
+    .slick-dots {
+        bottom: 0;
+        li {
+            button {
+                &:before {
+                    color: $white;
+                    opacity:0.6;
+                }
+            }
+        }
+        li.slick-active {
+            button {
+                &:before {
+                    opacity:1;
+                }
+            }
+        }
+    }
+}

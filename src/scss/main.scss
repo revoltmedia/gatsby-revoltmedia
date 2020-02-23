@@ -1,7 +1,14 @@
 // Import Bootstrap config first
 @import './../scss/bootstrap/config';
+@import './../scss/local/mixin-style';
 @import './../scss/local/fonts';
-@import './../scss/local/containers';
-@import './../scss/local/backgrounds';
+@import './../scss/local/typography';
+@import './../scss/local/elements';
+@import './../scss/local/layout';
 @import './../scss/local/header';
+@import './../scss/local/footer';
+@import './../scss/local/carousel';
 @import './../scss/local/portfolio';
+@import './../scss/local/slick-theme.scss';
+@import '~slick-carousel/slick/slick.scss';
+
