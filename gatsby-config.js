@@ -3,23 +3,13 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
-    title: `Revolt Media`,
     logoUrl: `/assets/images/revoltmedia-white.svg`,
-    navMain:[
-      {
-        name:'Request Proposal',
-        link:'/request-proposal',
-        external: false
-      },
-      {
-        name:'(530) 454-5674',
-        link:'tel:+15304545674',
-        external: true
-      },
-    ],
     slidesMain:[
       {
         title:'Standards Compliant HTML5 for Any Platform',
@@ -92,6 +82,14 @@ module.exports = {
     ]
   },
   plugins: [
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "Wordpress",
+        fieldName: "wordpress",
+        url: process.env.WORDPRESS_HOST + process.env.WORDPRESS_GRAPHQL_PATH,
+      },
+    },
     `gatsby-transformer-remark`,
     `gatsby-plugin-react-helmet`,
     {

@@ -9,15 +9,24 @@ export default ({ children }) => (
   <StaticQuery
   query={graphql `
     query {
+      wordpress {
+        allSettings {
+          generalSettingsTitle
+          generalSettingsDescription
+        }
+        menuItems(where: {location: MENU_1}) {
+          nodes {
+            title
+            url
+            description
+            id
+            label
+          }
+        }
+      }
       site {
         siteMetadata {
-          title,
-          logoUrl,
-          navMain {
-            name,
-            link,
-            external,
-          }
+          logoUrl
         }
       }
     }
@@ -28,7 +37,7 @@ export default ({ children }) => (
 
     <div>
       <Helmet 
-        defaultTitle={data.site.siteMetadata.title} 
+        defaultTitle={data.wordpress.allSettings.generalSettingsTitle + ' | ' + data.wordpress.allSettings.generalSettingsDescription} 
         titleTemplate={`%s | ${data.site.siteMetadata.title}`}
       >
         <html lang="en" />
@@ -42,7 +51,7 @@ export default ({ children }) => (
         <meta property="og:url" content="https://www.revoltmedia.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en" />
-        <meta property="og:site_name" content={data.site.siteMetadata.title} />
+        <meta property="og:site_name" content={data.wordpress.allSettings.generalSettingsTitle} />
         <meta property="og:description" content="Development: Wordpress, Static Websites, GatsbyJS, React &amp; more." />
         <meta property="og:image" content="/assets/images/facebook-opengraph/og-image.jpg" />
         <meta property="og:image:height" content="372" />
@@ -73,17 +82,17 @@ export default ({ children }) => (
         <meta name="theme-color" content="#ffffff" />
       </Helmet>
       <Header
-        title={data.site.siteMetadata.title}
+        title={data.wordpress.allSettings.generalSettingsTitle}
         logoUrl={data.site.siteMetadata.logoUrl}
-        nav={data.site.siteMetadata.navMain}
+        nav={data.wordpress.menuItems.nodes}
       />
         <main id="content">
           {children}
         </main>
       <Footer
-        title={data.site.siteMetadata.title}
+        title={data.wordpress.allSettings.generalSettingsTitle}
         logoUrl={data.site.siteMetadata.logoUrl}
-        nav={data.site.siteMetadata.navMain}
+        nav={data.wordpress.menuItems.nodes}
       />
     </div>
   )}
