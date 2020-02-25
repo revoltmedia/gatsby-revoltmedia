@@ -1,8 +1,15 @@
 #carousel-main {
-    background:url(/assets/images/backgrounds/bg-hero-bikepath.jpg) no-repeat center right;
+    background:url(/assets/images/backgrounds/bg-hero-bikepath.jpg) no-repeat top right;
+    background-size: auto 20vh;
+    padding-top:20vh;
     margin-top:-22px;
+    margin-bottom: ($grid-gutter-width);
+    @include media-breakpoint-up(sm){
+        background-size: auto auto;
+        padding-top:310px;
+    }
     .slick-slide {
-        height: 310px;
+        // height: 310px;
     }
     .slick-prev {
         left: rem(10px);
@@ -11,7 +18,7 @@
         right: rem(10px);
     }
     .slick-dots {
-        bottom: 0;
+        bottom: rem(-10px);
         li {
             button {
                 &:before {
@@ -24,6 +31,55 @@
             button {
                 &:before {
                     opacity:1;
+                }
+            }
+        }
+    }
+
+    .slick-slider {
+        margin-top:-22px;
+    }
+
+    .carousel-content {
+        
+        >div {
+            @include s-wood-layer;
+            >div {
+                min-height: rem(440px);
+                @include media-breakpoint-up(sm){
+                    min-height: rem(215px);
+                    display: flex;
+                    text-align: left;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .carousel-image {
+                    text-align: center;
+                    img {
+                        display: inline;
+                    }
+                }
+                .carousel-text {
+                    max-width: rem(640px);
+                    h3 {
+                        text-align: center;
+                        @include media-breakpoint-up(sm){
+                            text-align: left;
+                        }
+                    }
+                }
+                .carousel-image,
+                .carousel-text {
+                    padding: ($grid-gutter-width)  ;
+                }
+                .carousel-cta {
+                    >a {
+                        @include m-button;
+                        @include s-text-size(22px);
+                        @include media-breakpoint-up(sm){
+                            @include s-text-size(14px);
+                        }
+                    }
                 }
             }
         }

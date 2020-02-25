@@ -12,16 +12,29 @@ export default ({ data }) => {
         site {
           siteMetadata {
             logoUrl,
-            slidesMain {
-              title,
-              link,
-              description,
-              iconUrl,
-            }
             caseStudiesMain {
               clientName,
               linkUrl,
               description,
+            }
+          }
+        }
+        wordpress {
+          carouselSlides {
+            nodes {
+              id
+              slug
+              title
+              content(format: RENDERED)
+              carouselContent {
+                carouselImage {
+                  altText
+                  id
+                  sourceUrl
+                }
+                carouselLinkUrl
+                carouselLinkText
+              }
             }
           }
         }
@@ -32,7 +45,7 @@ export default ({ data }) => {
     render={data => (
       <Layout>
         <Carousel
-          slides={data.site.siteMetadata.slidesMain}
+          slides={data.wordpress.carouselSlides.nodes}
         />
         <CaseStudies
           caseStudies={data.site.siteMetadata.caseStudiesMain}

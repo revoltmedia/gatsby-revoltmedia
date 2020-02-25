@@ -51,3 +51,25 @@
   background-color: rgba($black, 0.2);
 }
 
+@mixin s-wood-layer {
+  background-image: url(/assets/images/backgrounds/bg-shadow-down.png), url(/assets/images/backgrounds/bg-shadow-up.png);
+  background-position: center bottom, center top;
+  background-repeat: no-repeat, no-repeat;
+  padding-bottom:22px;
+  padding-top:22px;
+  >div {
+    overflow:hidden;
+    position: relative;
+    &:before {
+      @include s-bg-wood();
+      content: "";
+      position:absolute;
+      top:50%;
+      left:50%;
+      width: 2000%;
+      height: 2000%;
+      z-index: -1;
+      transform: translate(-50%,-50%);
+    }
+  }
+}
