@@ -1,6 +1,5 @@
 footer#main-footer {
   
-  border-top: 1px solid $black;
   background:url(/assets/images/backgrounds/bg-shadow-up.png) center top no-repeat;
   padding-top:22px;
   @include media-breakpoint-up(sm) {
@@ -11,6 +10,8 @@ footer#main-footer {
   }
   >div {
     background:url(/assets/images/bg-wood-dark.jpg) center bottom;
+    border-top: 1px solid $black;
+
     >div {
       @include make-row();
       @include media-breakpoint-up(sm){

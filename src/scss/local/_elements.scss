@@ -1,6 +1,11 @@
 @mixin m-button( $color: $purple ) {
     @include button-variant($color, $color);
     @include button-size(rem(5px), rem(10px), inherit, inherit, rem(5px));
+    display:block;
+    text-align: center;
+    @include media-breakpoint-up(sm){
+        display:inline;
+    }
 }
 
 @mixin m-unbutton {
@@ -18,7 +23,6 @@
             padding: 0 ($grid-gutter-width / 2);
         }
         > a {
-            display:block;
             @include m-button;
             margin: 0 0 rem(10px) 0;
             
