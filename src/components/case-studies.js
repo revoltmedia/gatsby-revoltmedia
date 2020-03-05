@@ -1,23 +1,26 @@
 import React from "react"
-import { Link } from "gatsby"
 
 export default ({ caseStudies }) => {
-    return(
-        <div id="case-studies-main">
+    return (
+        <section id="featured-case-study">
+            <header>
+                <h2>Featured Case Study</h2>
+            </header>
             {caseStudies.map(caseStudy => (
                 <div>
-                    <h3>{caseStudy.clientName}</h3>
-                    <div className="description">
-                        {caseStudy.description}
-                    </div>
-                    {(caseStudy.linkUrl) && (
-                        <Link to={caseStudy.linkUrl}>
-                            More
-                        </Link>
+                    {caseStudy.caseStudyContent.caseStudyFeatured && (
+                        <div id="case-studies-main">
+                            <div>
+                                <h3>{caseStudy.title}</h3>
+                                <div 
+                                    className="description"
+                                    dangerouslySetInnerHTML={{__html: caseStudy.content}}
+                                />
+                            </div>
+                        </div>
                     )}
-
                 </div>
             ))}
-        </div>
+        </section>
     )
 }

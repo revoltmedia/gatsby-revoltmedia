@@ -11,12 +11,7 @@ export default ({ data }) => {
       query {
         site {
           siteMetadata {
-            logoUrl,
-            caseStudiesMain {
-              clientName,
-              linkUrl,
-              description,
-            }
+            logoUrl
           }
         }
         wordpress {
@@ -37,6 +32,17 @@ export default ({ data }) => {
               }
             }
           }
+          caseStudies {
+            nodes {
+              id
+              slug
+              title
+              content(format: RENDERED)
+              caseStudyContent {
+                caseStudyFeatured
+              }
+            }
+          }
         }
       }
       `
@@ -48,7 +54,7 @@ export default ({ data }) => {
           slides={data.wordpress.carouselSlides.nodes}
         />
         <CaseStudies
-          caseStudies={data.site.siteMetadata.caseStudiesMain}
+          caseStudies={data.wordpress.caseStudies.nodes}
         />
         <div>
             Hello
