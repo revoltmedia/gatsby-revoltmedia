@@ -38,8 +38,35 @@ export default ({ data }) => {
               slug
               title
               content(format: RENDERED)
+              caseStudyId
               caseStudyContent {
-                caseStudyFeatured
+                caseStudyLogo {
+                  altText
+                  mediaDetails {
+                    sizes {
+                      file
+                      height
+                      mimeType
+                      name
+                      sourceUrl
+                      width
+                    }
+                  }
+                }
+                caseStudyGallery {
+                  mediaDetails {
+                    sizes {
+                      height
+                      name
+                      sourceUrl
+                      width
+                      mimeType
+                      file
+                    }
+                    file
+                  }
+                  altText
+                }
               }
             }
           }

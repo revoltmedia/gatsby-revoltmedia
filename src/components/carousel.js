@@ -16,13 +16,13 @@ export default ({ slides }) => {
         <div id="carousel-main">
             <Carousel {...settings}>
                 {slides.map(slide => (
-                    <div key="slide.id" class="carousel-content">
+                    <div key="slide.id" className="carousel-content">
                         <div>
                             <div>
-                                <div class="carousel-image">
+                                <div className="carousel-image">
                                     <img src={slide.carouselContent.carouselImage.sourceUrl} alt={slide.carouselContent.carouselImage.altText} />
                                 </div>
-                                <div class="carousel-text">
+                                <div className="carousel-text">
                                     <h3>{slide.title}</h3>
                                     <div 
                                         className="description"
@@ -30,7 +30,7 @@ export default ({ slides }) => {
                                     >
                                     </div>
                                     {(slide.carouselContent.carouselLinkUrl) && (
-                                        <p class="carousel-cta">
+                                        <p className="carousel-cta">
                                             <Link to={slide.carouselContent.carouselLinkUrl} >
                                                 {(slide.carouselContent.carouselLinkText) && (
                                                     <span>{slide.carouselContent.carouselLinkText}</span>
